@@ -40,8 +40,8 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 | 2 |  |
 | 3 |  |
 
-    - `max_nosnost_ch.1 -> !pocet_slotu_ch.1`
-    - `max_nosnost_ch.3 -> !pocet_slotu_ch.3`
+- `max_nosnost_ch.1 -> !pocet_slotu_ch.1`
+- `max_nosnost_ch.3 -> !pocet_slotu_ch.3`
 
 | `pocet_pozadavku_ch` | Celkový počet naplánovaných požadavků |
 | :------------------: | ------------------------------------- |
@@ -64,30 +64,30 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 | 1 |  |
 | 2 |  |
 
-    - `(vaha_prekracuje_nosnost_ch.1 and vaha_neprekracuje_nosnost_ch.1) -> pocet_pozadavku_ch.2`
-    - `vaha_prekracuje_nosnost_ch.2 -> vaha_neprekracuje_nosnost_ch.1`
-    - `vaha_neprekracuje_nosnost_ch.2 -> vaha_prekracuje_nosnost_ch.1`
+- `(vaha_prekracuje_nosnost_ch.1 and vaha_neprekracuje_nosnost_ch.1) -> pocet_pozadavku_ch.2`
+- `vaha_prekracuje_nosnost_ch.2 -> vaha_neprekracuje_nosnost_ch.1`
+- `vaha_neprekracuje_nosnost_ch.2 -> vaha_prekracuje_nosnost_ch.1`
 
 | `vice_pozadavku_stejny_cas_ch` | Alespoň 2 požadavky jsou naplánovány na stejný čas |
 | :----------------------------: | -------------------------------------------------- |
 | 1 |  |
 | 2 |  |
 
-    - `vice_pozadavku_stejny_cas_ch.1 -> pocet_pozadavku_ch.2`
+- `vice_pozadavku_stejny_cas_ch.1 -> pocet_pozadavku_ch.2`
 
 | `vice_pozadavku_stejna_start_stan_ch` | Alespoň 2 požadavky jsou naplánovány ze stejné počáteční stanice |
 | :-----------------------------------: | ---------------------------------------------------------------- |
 | 1 |  |
 | 2 |  |
 
-    - `vice_pozadavku_stejna_start_stan_ch.1 -> pocet_pozadavku_ch.2`
+- `vice_pozadavku_stejna_start_stan_ch.1 -> pocet_pozadavku_ch.2`
 
 | `vice_pozadavku_stejna_cil_stan_ch` | Alespoň 2 požadavky jsou naplánovány do stejné cílové stanice |
 | :---------------------------------: | ------------------------------------------------------------- |
 | 1 |  |
 | 2 |  |
 
-    - `vice_pozadavku_stejna_cil_stan_ch.1 -> pocet_pozadavku_ch.2`
+- `vice_pozadavku_stejna_cil_stan_ch.1 -> pocet_pozadavku_ch.2`
 
 ## Kombinace všech dvojic bloků
 
