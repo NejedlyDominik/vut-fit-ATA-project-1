@@ -1,12 +1,12 @@
 # Dokumentace testů
 
-Autor: Dominik Nejedlý
-Login: xnejed09
+Autor: Dominik Nejedlý (xnejed09)
 
 ## Graf přícin a důsledků (CEG)
 
-Použitý nástroj: [Ceg](http://ceg.testos.org/)
-Soubor s výslednou konfigurací: ceg.json
+K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsledná konfigurace pro tento nástroj se nachází v souboru `ceg.json`.
 
-![Graf příčin a důsledků (CEG)](ceg-graph.png "CEG")
-![Výsledná rozhodovací tabulka](ceg-table.png "CEG table")
+![Graf příčin a důsledků (CEG)](ceg-graph.png)
+*Graf příčin a důsledů (screenshot z nástroje Ceg)*
+![Výsledná rozhodovací tabulka](ceg-table.png)
+*Výsledná rozhodovací tabulka (screenshot z nástroje Ceg)*
