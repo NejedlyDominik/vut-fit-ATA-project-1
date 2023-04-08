@@ -1,0 +1,84 @@
+{
+    "name": "Vozik",
+    "t_strength": "2",
+    "dont_care_values": "no",
+    "values": "values",
+    "parameters": [
+        {
+            "identificator": "pocet_slotu",
+            "type": "integer",
+            "blocks": [
+                "pocet_slotu=1",
+                "pocet_slotu=2",
+                "pocet_slotu=3 or pocet_slotu=4"
+            ]
+        },
+        {
+            "identificator": "max_nosnost",
+            "type": "integer",
+            "blocks": [
+                "max_nosnost=50",
+                "max_nosnost=150",
+                "max_nosnost=500"
+            ]
+        },
+        {
+            "identificator": "pocet_stanic_na_trase",
+            "type": "integer",
+            "blocks": [
+                "pocet_stanic_na_trase=1",
+                "pocet_stanic_na_trase=2",
+                "pocet_stanic_na_trase>2"
+            ]
+        },
+        {
+            "identificator": "pocet_pozadavku",
+            "type": "integer",
+            "blocks": [
+                "pocet_pozadavku=1",
+                "pocet_pozadavku>1"
+            ]
+        },
+        {
+            "identificator": "vaha_prekracuje_nosnost",
+            "type": "boolean",
+            "blocks": [
+                false,
+                true
+            ]
+        },
+        {
+            "identificator": "vaha_neprekracuje_nosnost",
+            "type": "boolean",
+            "blocks": [
+                false,
+                true
+            ]
+        },
+        {
+            "identificator": "vice_pozadavku_stejny_cas",
+            "type": "boolean",
+            "blocks": [
+                false,
+                true
+            ]
+        },
+        {
+            "identificator": "vice_pozadavku_stejna_trasa",
+            "type": "boolean",
+            "blocks": [
+                false,
+                true
+            ]
+        }
+    ],
+    "constraints": [
+        "max_nosnost.1 -> !pocet_slotu.1",
+        "max_nosnost.3 -> !pocet_slotu.3",
+        "(vaha_prekracuje_nosnost.1 and vaha_neprekracuje_nosnost.1) -> pocet_pozadavku.2",
+        "vaha_prekracuje_nosnost.2 -> vaha_neprekracuje_nosnost.1",
+        "vaha_neprekracuje_nosnost.2 -> vaha_prekracuje_nosnost.1",
+        "vice_pozadavku_stejny_cas.1 -> pocet_pozadavku.2",
+        "vice_pozadavku_stejna_trasa.1 -> pocet_pozadavku.2"
+    ]
+}

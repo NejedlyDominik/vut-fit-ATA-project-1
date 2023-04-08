@@ -1,0 +1,57 @@
+Causes:
+1: Časová fáze do 1 minuty od vystavení požadavku
+2: Časová fáze od 1 minuty od vystavení požadavku
+3: Časová fáze do 1 minuty od nastavení prioritní vlastnosti požadavku
+4: Časová fáze od 1 minuty od nastavení prioritní vlastnosti požadavku
+
+11: Vystavení požadavku na přemístění materiálu
+12: Vyzvednutí materiálu do 1 minuty od vystavení požadavku
+13: Nastavení prioritní vlastnosti požadavku určující přednostní přemístění materiálu
+14: Vyzvednutí materiálu do 1 minuty od nastavení prioritní vlastnosti požadavku
+15: Vozík je v režimu pouze_vykládka
+16: Vyložení materiálu identifikovaného požadavkem s nastavenou prioritní vlastností
+17: Všechny sloty vozíku jsou obsazené
+18: Vyzvednutí materiálu by způsobilo překročení maximální nosnosti
+
+Effects:
+71: Naložení materiálu
+72: Nastavení prioritní vlastnosti požadavku
+73: Vyvolání výjimky zpracování požadavku
+74: Přepnutí vozíku do pracovního režimu pouze_vykládka
+75: Přepnutí vozíku z pracovního režimu pouze_vykládka do výchozího normálního režimu
+76: Vozík nemůže materiál vyzvednout
+
+Rules:
+71 = 12 || 14
+72 = 2
+73 = 4
+74 = 14
+75 = 15 && 16
+76 = 15 || 17 || 18
+
+Constraints:
+11 -> 1
+1 -> 11
+2 -> 13
+13 -> 3
+
+E: 2, 12
+E: 4, 14
+
+// Materiál nelze vyzvednout
+E: 15, 12, 14
+E: 17, 12, 14
+E: 18, 12, 14
+
+// Pomocná podmínka sloužící pouze k redukci generovaných kombinací (nevychází ze specifikace, pouze omezuje možné kombinace)
+E: 15, 17, 18
+
+// Souslednost časových fází
+2 -> 1
+3 -> 2
+4 -> 3
+
+// Náležitost do časových fází
+12 -> 1
+13 -> 2
+14 -> 3
