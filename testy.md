@@ -28,7 +28,7 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 
 ## Charakteristiky parametrů
 
-`pocet_slotu`:
+### `pocet_slotu`
 
 | `pocet_slotu_ch` | Počet slotů vozíku                   |
 | :--------------: | :----------------------------------: |
@@ -36,7 +36,7 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 | 2                | `pocet_slotu = 2`                    |
 | 3                | `pocet_slotu = 3 or pocet_slotu = 4` |
 
-`max_nosnost`:
+### `max_nosnost`
 
 | `max_nosnost_ch` | Maximální nosnost vozíku (kg) |
 | :--------------: | :---------------------------: |
@@ -47,14 +47,14 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 - `max_nosnost_ch.1 -> !pocet_slotu_ch.1`
 - `max_nosnost_ch.3 -> !pocet_slotu_ch.3`
 
-`pocet_pozadavku`:
+### `pocet_pozadavku`
 
 | `pocet_pozadavku_ch` | Celkový počet naplánovaných požadavků |
 | :------------------: | :-----------------------------------: |
 | 1                    | `pocet_pozadavku = 1`                 |
 | 2                    | `pocet_pozadavku > 1`                 |
 
-`start_stanice` a `cil_stanice`:
+### `start_stanice` a `cil_stanice`
 
 | `pocet_stanic_na_trase_ch` | Celkový počet různých stanic na trase (`pocet_stanic_na_trase`) alespoň jednoho požadavku (včetně počáteční a cílové) |
 | :------------------------: | :-------------------------------------------------------------------------------------------------------------------: |
@@ -76,7 +76,7 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 
 - `vice_pozadavku_stejna_cil_stan_ch.1 -> pocet_pozadavku_ch.2`
 
-`vaha_pozadavku`:
+### `vaha_pozadavku`
 
 | `vaha_prekracuje_nosnost_ch` | Váha alespoň jednoho požadavku překračuje maximální nosnost vozíku (`vaha_pozadavku > max_nosnost`) |
 | :--------------------------: | :-------------------------------------------------------------------------------------------------: |
@@ -92,7 +92,7 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 - `vaha_prekracuje_nosnost_ch.2 -> vaha_neprekracuje_nosnost_ch.1`
 - `vaha_neprekracuje_nosnost_ch.2 -> vaha_prekracuje_nosnost_ch.1`
 
-`cas_pozadavku`:
+### `cas_pozadavku`
 
 | `vice_pozadavku_stejny_cas_ch` | Alespoň 2 požadavky jsou naplánovány na stejný čas |
 | :----------------------------: | :------------------------------------------------: |
