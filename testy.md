@@ -17,7 +17,7 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 ## Identifikace vstupních parametrů
 
 | Identifikátor     | Popis                                                          |
-| ----------------- | -------------------------------------------------------------- |
+| :---------------: | -------------------------------------------------------------- |
 | `pocet_slotu`     | Počet slotů vozíku                                             |
 | `max_nosnost`     | Maximální nosnost vozíku                                       |
 | `pocet_pozadavku` | Celkový počet naplánovaných požadavků                          |
