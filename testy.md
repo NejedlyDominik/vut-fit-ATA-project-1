@@ -16,9 +16,15 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 
 ## Identifikace vstupních parametrů
 
-| | |
-|-|-|
-| | |
+| Identifikátor     | Popis                                                          |
+| ----------------- | -------------------------------------------------------------- |
+| `pocet_slotu`     | Počet slotů vozíku                                             |
+| `max_nosnost`     | Maximální nosnost vozíku                                       |
+| `pocet_pozadavku` | Celkový počet naplánovaných požadavků                          |
+| `start_stanice`   | Počáteční stanice požadavku (stanice, kde je materiál naložen) |
+| `cil_stanice`     | Cílová stanice požadavku (stanice, kde je materiál vyložen)    |
+| `vaha_pozadavku`  | Váha požadavku (váha meteriálu, který má být převezen)         |
+| `cas_pozadavku`   | Naplánovaný čas vystavení požadavku                            |
 
 ## Charakteristiky parametrů
 
