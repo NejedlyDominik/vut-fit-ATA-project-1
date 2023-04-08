@@ -93,6 +93,8 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 
 K vytvoření kombinací byl využit nástroj: [Combine](https://combine.testos.org/). Výsledná konfigurace pro tento nástroj se nachází v souboru `combine.json`.
 
+*Poznámka: Testovací případ 12 (vygenerovaný nástrojem [Combine](https://combine.testos.org/)) nesplňuje definovaná omezení (vozík s maximální nosností 50 kg nemůže mít pouze jeden slot). Je tedy možné že daný nástroj nepracuje zcela správně.*
+
 ### Tabulka kombinací všech dvojic bloků (screenshot z nástroje [Combine](https://combine.testos.org/))
 
 ![Výsledná tabulka kombinací všech dvojic bloků](combine-table.png "Výsledná tabulka kombinací všech dvojic bloků")
