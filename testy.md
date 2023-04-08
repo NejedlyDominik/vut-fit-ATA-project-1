@@ -8,11 +8,11 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 
 ### Graf příčin a důsledů (screenshot z nástroje [Ceg](http://ceg.testos.org/))
 
-![Graf příčin a důsledků (CEG)](ceg-graph.png)
+![Graf příčin a důsledků (CEG)](ceg-graph.png "Graf příčin a důsledků (CEG)")
 
 ### Výsledná rozhodovací tabulka (screenshot z nástroje [Ceg](http://ceg.testos.org/))
 
-![Výsledná rozhodovací tabulka](ceg-table.png)
+![Výsledná rozhodovací tabulka](ceg-table.png "Výsledná rozhodovací tabulka")
 
 ## Identifikace vstupních parametrů
 
@@ -24,8 +24,8 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 
 ## Kombinace všech dvojic bloků
 
-K vytvoření kombinací byl využit nástroj: [Ceg](https://combine.testos.org/). Výsledná konfigurace pro tento nástroj se nachází v souboru `combine.json`.
+K vytvoření kombinací byl využit nástroj: [Combine](https://combine.testos.org/). Výsledná konfigurace pro tento nástroj se nachází v souboru `combine.json`.
 
 ### Tabulka kombinací všech dvojic bloků (screenshot z nástroje [Combine](https://combine.testos.org/))
 
-![Výsledná tabulka kombinací všech dvojic bloků](combine-table.png)
+![Výsledná tabulka kombinací všech dvojic bloků](combine-table.png "Výsledná tabulka kombinací všech dvojic bloků")
