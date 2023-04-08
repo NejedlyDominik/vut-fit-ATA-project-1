@@ -13,3 +13,9 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 ### Výsledná rozhodovací tabulka (screenshot z nástroje Ceg)
 
 ![Výsledná rozhodovací tabulka](ceg-table.png)
+
+## Identifikace vstupních parametrů
+
+| | |
+|-|-|
+| | |

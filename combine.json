@@ -5,42 +5,42 @@
     "values": "values",
     "parameters": [
         {
-            "identificator": "pocet_slotu",
+            "identificator": "pocet_slotu_ch",
             "type": "integer",
             "blocks": [
-                "pocet_slotu=1",
-                "pocet_slotu=2",
-                "pocet_slotu=3 or pocet_slotu=4"
+                "pocet_slotu_ch=1",
+                "pocet_slotu_ch=2",
+                "pocet_slotu_ch=3 or pocet_slotu_ch=4"
             ]
         },
         {
-            "identificator": "max_nosnost",
+            "identificator": "max_nosnost_ch",
             "type": "integer",
             "blocks": [
-                "max_nosnost=50",
-                "max_nosnost=150",
-                "max_nosnost=500"
+                "max_nosnost_ch=50",
+                "max_nosnost_ch=150",
+                "max_nosnost_ch=500"
             ]
         },
         {
-            "identificator": "pocet_stanic_na_trase",
+            "identificator": "pocet_stanic_na_trase_ch",
             "type": "integer",
             "blocks": [
-                "pocet_stanic_na_trase=1",
-                "pocet_stanic_na_trase=2",
-                "pocet_stanic_na_trase>2"
+                "pocet_stanic_na_trase_ch=1",
+                "pocet_stanic_na_trase_ch=2",
+                "pocet_stanic_na_trase_ch>2"
             ]
         },
         {
-            "identificator": "pocet_pozadavku",
+            "identificator": "pocet_pozadavku_ch",
             "type": "integer",
             "blocks": [
-                "pocet_pozadavku=1",
-                "pocet_pozadavku>1"
+                "pocet_pozadavku_ch=1",
+                "pocet_pozadavku_ch>1"
             ]
         },
         {
-            "identificator": "vaha_prekracuje_nosnost",
+            "identificator": "vaha_prekracuje_nosnost_ch",
             "type": "boolean",
             "blocks": [
                 false,
@@ -48,7 +48,7 @@
             ]
         },
         {
-            "identificator": "vaha_neprekracuje_nosnost",
+            "identificator": "vaha_neprekracuje_nosnost_ch",
             "type": "boolean",
             "blocks": [
                 false,
@@ -56,7 +56,7 @@
             ]
         },
         {
-            "identificator": "vice_pozadavku_stejny_cas",
+            "identificator": "vice_pozadavku_stejny_cas_ch",
             "type": "boolean",
             "blocks": [
                 false,
@@ -64,7 +64,15 @@
             ]
         },
         {
-            "identificator": "vice_pozadavku_stejna_trasa",
+            "identificator": "vice_pozadavku_stejna_start_stan_ch",
+            "type": "boolean",
+            "blocks": [
+                false,
+                true
+            ]
+        },
+        {
+            "identificator": "vice_pozadavku_stejna_cil_stan_ch",
             "type": "boolean",
             "blocks": [
                 false,
@@ -73,12 +81,13 @@
         }
     ],
     "constraints": [
-        "max_nosnost.1 -> !pocet_slotu.1",
-        "max_nosnost.3 -> !pocet_slotu.3",
-        "(vaha_prekracuje_nosnost.1 and vaha_neprekracuje_nosnost.1) -> pocet_pozadavku.2",
-        "vaha_prekracuje_nosnost.2 -> vaha_neprekracuje_nosnost.1",
-        "vaha_neprekracuje_nosnost.2 -> vaha_prekracuje_nosnost.1",
-        "vice_pozadavku_stejny_cas.1 -> pocet_pozadavku.2",
-        "vice_pozadavku_stejna_trasa.1 -> pocet_pozadavku.2"
+        "max_nosnost_ch.1 -> !pocet_slotu_ch.1",
+        "max_nosnost_ch.3 -> !pocet_slotu_ch.3",
+        "(vaha_prekracuje_nosnost_ch.1 and vaha_neprekracuje_nosnost_ch.1) -> pocet_pozadavku_ch.2",
+        "vaha_prekracuje_nosnost_ch.2 -> vaha_neprekracuje_nosnost_ch.1",
+        "vaha_neprekracuje_nosnost_ch.2 -> vaha_prekracuje_nosnost_ch.1",
+        "vice_pozadavku_stejny_cas_ch.1 -> pocet_pozadavku_ch.2",
+        "vice_pozadavku_stejna_start_stan_ch.1 -> pocet_pozadavku_ch.2",
+        "vice_pozadavku_stejna_cil_stan_ch.1 -> pocet_pozadavku_ch.2"
     ]
 }
