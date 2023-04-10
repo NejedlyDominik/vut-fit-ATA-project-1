@@ -105,7 +105,7 @@ K vytvoření kombinací byl využit nástroj: [Combine](https://combine.testos.
 
 ## Implementované testy
 
-K implementaci bylo vybráno celkem 10 testů (5 z výsledné CEG rozhodovací tabulky a 5 z tabulky kombinací všech dvojic bloků).
+K implementaci bylo vybráno celkem 15 testů (5 z výsledné CEG rozhodovací tabulky a 10 z tabulky kombinací všech dvojic bloků).
 
 ### Tabulka udávající vybrané testovací případy z výsledné CEG rozhodovací tabulky a jejich výsledky
 
@@ -119,10 +119,16 @@ K implementaci bylo vybráno celkem 10 testů (5 z výsledné CEG rozhodovací t
 
 ### Tabulka udávající vybrané testovací případy z výsledné tabulky kombinací všech dvojic bloků a jejich výsledky
 
-| Testovací případ | Test (příslušná metoda)   | Výsledek testu |
-| :--------------: | :-----------------------: | :------------: |
-| 1                | `test_combine_`         | úspěšný        |
-| 3                | `test_combine_`    | úspěšný        |
-| 4                | `test_combine_`           | úspěšný        |
-| 5                | `test_combine_`       | úspěšný        |
-| 6                | `test_combine_`      | úspěšný        |
+| Testovací případ                   | Test (příslušná metoda)   | Výsledek testu |
+| :--------------------------------: | :-----------------------: | :------------: |
+| 1                                  | `test_combine_1`          | úspěšný        |
+| 2                                  | `test_combine_2`          | úspěšný        |
+| 3                                  | `test_combine_3`          | úspěšný        |
+| 4                                  | `test_combine_4`          | úspěšný        |
+| 5                                  | `test_combine_5`          | úspěšný        |
+| 8                                  | `test_combine_8`          | úspěšný        |
+| 9                                  | `test_combine_9`          | úspěšný        |
+| 10                                 | `test_combine_10`         | úspěšný        |
+| 11                                 | `test_combine_11`         | úspěšný        |
+| 12 (s upraveným počtem slotů na 2) | `test_combine_12`         | úspěšný        |
+
