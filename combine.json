@@ -32,6 +32,15 @@
             ]
         },
         {
+            "identificator": "rozdil_casu_ch",
+            "type": "integer",
+            "blocks": [
+                "rozdil_casu_ch=0",
+                "rozdil_casu_ch>0 and rozdil_casu_ch<=60",
+                "rozdil_casu_ch>60"
+            ]
+        },
+        {
             "identificator": "pocet_pozadavku_ch",
             "type": "integer",
             "blocks": [
@@ -40,23 +49,7 @@
             ]
         },
         {
-            "identificator": "vaha_prekracuje_nosnost_ch",
-            "type": "boolean",
-            "blocks": [
-                false,
-                true
-            ]
-        },
-        {
-            "identificator": "vaha_neprekracuje_nosnost_ch",
-            "type": "boolean",
-            "blocks": [
-                false,
-                true
-            ]
-        },
-        {
-            "identificator": "vice_pozadavku_stejny_cas_ch",
+            "identificator": "soucet_vah_prekracuje_nosnost_ch",
             "type": "boolean",
             "blocks": [
                 false,
@@ -83,10 +76,7 @@
     "constraints": [
         "max_nosnost_ch.1 -> !pocet_slotu_ch.1",
         "max_nosnost_ch.3 -> !pocet_slotu_ch.3",
-        "(vaha_prekracuje_nosnost_ch.1 and vaha_neprekracuje_nosnost_ch.1) -> pocet_pozadavku_ch.2",
-        "vaha_prekracuje_nosnost_ch.2 -> vaha_neprekracuje_nosnost_ch.1",
-        "vaha_neprekracuje_nosnost_ch.2 -> vaha_prekracuje_nosnost_ch.1",
-        "vice_pozadavku_stejny_cas_ch.1 -> pocet_pozadavku_ch.2",
+        "pocet_pozadavku_ch.1 -> rozdil_casu_ch.1",
         "vice_pozadavku_stejna_start_stan_ch.1 -> pocet_pozadavku_ch.2",
         "vice_pozadavku_stejna_cil_stan_ch.1 -> pocet_pozadavku_ch.2"
     ]

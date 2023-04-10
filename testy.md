@@ -20,11 +20,11 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 | :---------------: | -------------------------------------------------------------- |
 | `pocet_slotu`     | Počet slotů vozíku                                             |
 | `max_nosnost`     | Maximální nosnost vozíku                                       |
+| `cas_pozadavku`   | Naplánovaný čas vystavení požadavku                            |
 | `pocet_pozadavku` | Celkový počet naplánovaných požadavků                          |
 | `start_stanice`   | Počáteční stanice požadavku (stanice, kde je materiál naložen) |
 | `cil_stanice`     | Cílová stanice požadavku (stanice, kde je materiál vyložen)    |
 | `vaha_pozadavku`  | Váha požadavku (váha meteriálu, který má být převezen)         |
-| `cas_pozadavku`   | Naplánovaný čas vystavení požadavku                            |
 
 ## Charakteristiky parametrů
 
@@ -47,12 +47,22 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 - `max_nosnost_ch.1 -> !pocet_slotu_ch.1`
 - `max_nosnost_ch.3 -> !pocet_slotu_ch.3`
 
+### `cas_pozadavku`
+
+| `rozdil_casu_ch` | Alespoň 2 požadavky jsou naplánovány s daným rozdílem časů (`rozdil_casu`) na stejný čas |
+| :--------------: | :--------------------------------------------------------------------------------------: |
+| 1                | `rozdil_casu = 0`                                                                        |
+| 2                | `rozdil_casu > 0 and rozdil_casu <= 60`                                                  |
+| 2                | `rozdil_casu > 60`                                                                       |
+
 ### `pocet_pozadavku`
 
 | `pocet_pozadavku_ch` | Celkový počet naplánovaných požadavků |
 | :------------------: | :-----------------------------------: |
 | 1                    | `pocet_pozadavku = 1`                 |
 | 2                    | `pocet_pozadavku > 1`                 |
+
+- `pocet_pozadavku_ch.1 -> rozdil_casu_ch.1`
 
 ### `start_stanice` a `cil_stanice`
 
@@ -78,35 +88,41 @@ K vytvoření grafu byl využit nástroj: [Ceg](http://ceg.testos.org/). Výsled
 
 ### `vaha_pozadavku`
 
-| `vaha_prekracuje_nosnost_ch` | Váha alespoň jednoho požadavku překračuje maximální nosnost vozíku (`vaha_pozadavku > max_nosnost`) |
-| :--------------------------: | :-------------------------------------------------------------------------------------------------: |
-| 1                            | `true`                                                                                              |
-| 2                            | `false`                                                                                             |
-
-| `vaha_neprekracuje_nosnost_ch` | Váha alespoň jednoho požadavku nepřekračuje maximální nosnost vozíku (`vaha_pozadavku <= max_nosnost`) |
-| :----------------------------: | :----------------------------------------------------------------------------------------------------: |
-| 1                              | `true`                                                                                                 |
-| 2                              | `false`                                                                                                |
-
-- `(vaha_prekracuje_nosnost_ch.1 and vaha_neprekracuje_nosnost_ch.1) -> pocet_pozadavku_ch.2`
-- `vaha_prekracuje_nosnost_ch.2 -> vaha_neprekracuje_nosnost_ch.1`
-- `vaha_neprekracuje_nosnost_ch.2 -> vaha_prekracuje_nosnost_ch.1`
-
-### `cas_pozadavku`
-
-| `vice_pozadavku_stejny_cas_ch` | Alespoň 2 požadavky jsou naplánovány na stejný čas |
-| :----------------------------: | :------------------------------------------------: |
-| 1                              | `true`                                             |
-| 2                              | `false`                                            |
-
-- `vice_pozadavku_stejny_cas_ch.1 -> pocet_pozadavku_ch.2`
+| `soucet_vah_prekracuje_nosnost_ch` | Součet vah všech naplánvaných požadavků (`soucet_vah`) překračuje maximální nosnost vozíku |
+| :--------------------------------: | :----------------------------------------------------------------------------------------: |
+| 1                                  | `true` (`soucet_vah > max_nosnost`)                                                        |
+| 2                                  | `false` (`soucet_vah <= max_nosnost`)                                                      |
 
 ## Kombinace všech dvojic bloků
 
 K vytvoření kombinací byl využit nástroj: [Combine](https://combine.testos.org/). Výsledná konfigurace pro tento nástroj se nachází v souboru `combine.json`.
 
-*Poznámka: Testovací případ 12 (vygenerovaný nástrojem [Combine](https://combine.testos.org/)) nesplňuje definovaná omezení (vozík s maximální nosností 50 kg nemůže mít pouze jeden slot). Je tedy možné že daný nástroj nepracuje zcela správně.*
+*Poznámka: Testovací případy 12, 13, 14, a 15 (vygenerované nástrojem [Combine](https://combine.testos.org/)) nesplňují definovaná omezení (vozík s maximální nosností 50 kg nemůže mít pouze jeden slot). Je tedy možné že daný nástroj nepracuje zcela správně.*
 
 ### Tabulka kombinací všech dvojic bloků (screenshot z nástroje [Combine](https://combine.testos.org/))
 
 ![Výsledná tabulka kombinací všech dvojic bloků](combine-table.png "Výsledná tabulka kombinací všech dvojic bloků")
+
+## Implementované testy
+
+K implementaci bylo vybráno celkem 10 testů (5 z výsledné CEG rozhodovací tabulky a 5 z tabulky kombinací všech dvojic bloků).
+
+### Tabulka udávající vybrané testovací případy z výsledné CEG rozhodovací tabulky a jejich výsledky
+
+| Testovací případ | Test (příslušná metoda)   | Výsledek testu |
+| :--------------: | :-----------------------: | :------------: |
+| 1                | `test_no_request`         | úspěšný        |
+| 3                | `test_all_slots_taken`    | úspěšný        |
+| 4                | `test_overload`           | úspěšný        |
+| 5                | `test_load_request`       | úspěšný        |
+| 6                | `test_load_prior_request` | úspěšný        |
+
+### Tabulka udávající vybrané testovací případy z výsledné tabulky kombinací všech dvojic bloků a jejich výsledky
+
+| Testovací případ | Test (příslušná metoda)   | Výsledek testu |
+| :--------------: | :-----------------------: | :------------: |
+| 1                | `test_combine_`         | úspěšný        |
+| 3                | `test_combine_`    | úspěšný        |
+| 4                | `test_combine_`           | úspěšný        |
+| 5                | `test_combine_`       | úspěšný        |
+| 6                | `test_combine_`      | úspěšný        |
