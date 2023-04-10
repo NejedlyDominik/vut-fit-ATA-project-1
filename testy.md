@@ -111,24 +111,25 @@ K implementaci bylo vybráno celkem 15 testů (5 z výsledné CEG rozhodovací t
 
 | Testovací případ | Test (příslušná metoda)   | Výsledek testu |
 | :--------------: | :-----------------------: | :------------: |
-| 1                | `test_no_request`         | úspěšný        |
-| 3                | `test_all_slots_taken`    | úspěšný        |
-| 4                | `test_overload`           | úspěšný        |
-| 5                | `test_load_request`       | úspěšný        |
-| 6                | `test_load_prior_request` | úspěšný        |
+| 1                | `test_no_request`         | Úspěšný        |
+| 3                | `test_all_slots_taken`    | Úspěšný        |
+| 4                | `test_overload`           | Úspěšný        |
+| 5                | `test_load_request`       | Úspěšný        |
+| 6                | `test_load_prior_request` | Úspěšný        |
 
 ### Tabulka udávající vybrané testovací případy z výsledné tabulky kombinací všech dvojic bloků a jejich výsledky
 
 | Testovací případ                   | Test (příslušná metoda)   | Výsledek testu |
 | :--------------------------------: | :-----------------------: | :------------: |
-| 1                                  | `test_combine_1`          | úspěšný        |
-| 2                                  | `test_combine_2`          | úspěšný        |
-| 3                                  | `test_combine_3`          | úspěšný        |
-| 4                                  | `test_combine_4`          | úspěšný        |
-| 5                                  | `test_combine_5`          | úspěšný        |
-| 8                                  | `test_combine_8`          | úspěšný        |
-| 9                                  | `test_combine_9`          | úspěšný        |
-| 10                                 | `test_combine_10`         | úspěšný        |
-| 11                                 | `test_combine_11`         | úspěšný        |
-| 12 (s upraveným počtem slotů na 2) | `test_combine_12`         | úspěšný        |
+| 1                                  | `test_combine_1`          | Úspěšný        |
+| 2                                  | `test_combine_2`          | Úspěšný        |
+| 3                                  | `test_combine_3`          | Úspěšný        |
+| 4                                  | `test_combine_4`          | Úspěšný        |
+| 5                                  | `test_combine_5`          | Úspěšný        |
+| 8                                  | `test_combine_8`          | Úspěšný        |
+| 9                                  | `test_combine_9`          | Úspěšný        |
+| 10                                 | `test_combine_10`         | Úspěšný        |
+| 11                                 | `test_combine_11`         | Úspěšný        |
+| 12 (s upraveným počtem slotů na 2) | `test_combine_12`         | Neúspěšný      |
 
+*Poznámka: Testovací případ 12 plánuje 2 požadavky na vyzvednutí materiálu na stejný čas. To však ústí v chybu: `Cart is busy: Status.Loading`. Ta je vyvolána dvěma překrývajícími se pokusy o vyzvednutí jednoho z těchto požadavků. V programu se tedy nejspíše nachází chyba, která onen druhý požadavek na vyzvednutí toho samého materiálu zapříčiní.*
